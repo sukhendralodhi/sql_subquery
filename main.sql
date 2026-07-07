@@ -96,3 +96,28 @@ p.marks AS project_marks
 FROM projects AS p
 INNER JOIN students 
 AS s ON p.student_id = s.student_id;
+
+
+SELECT 
+	student_id,
+	AVG(score) AS avg_score
+FROM exam_scores
+GROUP BY student_id;
+
+SELECT
+	s.student_id,
+	s.name AS student_name,
+	s.branch AS student_branch,
+	p.title AS project_name,
+	p.marks,
+	exam_avg.avg_score
+FROM projects AS p
+INNER JOIN students AS s 
+ON s.student_id = p.student_id
+INNER JOIN (
+	SELECT 
+	student_id,
+	AVG(score) AS avg_score
+FROM exam_scores
+GROUP BY student_id
+) AS exam_avg ON exam_avg.student_id = p.student_id;
