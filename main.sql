@@ -69,3 +69,20 @@ GROUP BY student_id
 ) AS total_stats 
 INNER JOIN students AS s 
 ON s.student_id = total_stats.student_id;
+
+
+SELECT 
+s.name AS student_name,
+s.branch AS student_branch,
+total_stats.total_score,
+total_stats.number_of_attempts
+FROM (
+SELECT student_id,
+SUM(score) AS total_score,
+COUNT(*) AS number_of_attempts
+FROM exam_scores
+GROUP BY student_id
+) AS total_stats 
+INNER JOIN students AS s 
+ON s.student_id = total_stats.student_id
+ORDER BY total_stats.total_score DESC;
