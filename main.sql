@@ -86,3 +86,13 @@ GROUP BY student_id
 INNER JOIN students AS s 
 ON s.student_id = total_stats.student_id
 ORDER BY total_stats.total_score DESC;
+
+SELECT 
+s.name AS student_name,
+s.student_id,
+p.title AS project_name,
+s.branch AS student_branch,
+p.marks AS project_marks
+FROM projects AS p
+INNER JOIN students 
+AS s ON p.student_id = s.student_id;
