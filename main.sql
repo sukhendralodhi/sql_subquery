@@ -154,3 +154,23 @@ INNER JOIN students AS s ON s.student_id = e.student_id
 WHERE e.score > (
 	SELECT AVG(score) FROM exam_scores
 );
+
+
+INSERT INTO high_scorers_report (
+	student_id,
+	student_name,
+	subject,
+	score 
+)
+
+SELECT 
+	s.student_id,
+	s.name,
+	e.subject,
+	e.score
+FROM
+exam_scores AS e
+INNER JOIN students AS s ON s.student_id = e.student_id
+WHERE e.score > (
+	SELECT AVG(score) FROM exam_scores
+);
