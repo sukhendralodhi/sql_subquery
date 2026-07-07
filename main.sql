@@ -39,3 +39,33 @@ WHERE score >= 90;
 
 SELECT * FROM projects 
 WHERE marks >= 85;
+
+SELECT 
+	s.name, s.branch
+FROM students as s
+WHERE s.student_id IN(
+	SELECT student_id FROM exam_scores
+	WHERE score >= 90
+) AND s.student_id IN (
+	SELECT student_id FROM projects
+	WHERE marks >= 85
+);
+
+
+SELECT * FROM students;
+
+
+SELECT 
+s.name AS student_name,
+s.branch AS student_branch,
+total_stats.total_score,
+total_stats.number_of_attempts
+FROM (
+SELECT student_id,
+SUM(score) AS total_score,
+COUNT(*) AS number_of_attempts
+FROM exam_scores
+GROUP BY student_id
+) AS total_stats 
+INNER JOIN students AS s 
+ON s.student_id = total_stats.student_id;
