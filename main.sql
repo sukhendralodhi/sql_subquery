@@ -121,3 +121,36 @@ INNER JOIN (
 FROM exam_scores
 GROUP BY student_id
 ) AS exam_avg ON exam_avg.student_id = p.student_id;
+
+CREATE TABLE high_scorers_report (
+	id SERIAL PRIMARY KEY,
+	student_id INT NOT NULL,
+	student_name VARCHAR(50) NOT NULL,
+	subject VARCHAR(30) NOT NULL,
+	score INT NOT NULL,
+	archieved_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+SELECT * FROM high_scorers_report;
+SELECT AVG(score) AS avg_score FROM exam_scores
+GROUP BY student_id;
+SELECT * FROM students;
+
+INSERT INTO high_scorers_report (
+	student_id,
+	student_name,
+	subject,
+	score 
+)
+
+SELECT 
+	s.student_id,
+	s.name,
+	e.subject,
+	e.score
+FROM
+exam_scores AS e
+INNER JOIN students AS s ON s.student_id = e.student_id
+WHERE e.score > (
+	SELECT AVG(score) FROM exam_scores
+);
