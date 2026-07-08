@@ -27,3 +27,9 @@ FROM customers
 WHERE city = 'London';
 
 SELECT * FROM order_details;
+
+SELECT SUM(quantity) AS total_number_of_orders
+FROM order_details;
+
+SELECT ROUND(AVG(price), 2) AS prive_avg
+FROM products;
