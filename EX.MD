@@ -33,3 +33,20 @@ FROM order_details;
 
 SELECT ROUND(AVG(price), 2) AS prive_avg
 FROM products;
+
+
+SELECT * FROM products;
+
+SELECT * FROM customers
+WHERE country NOT IN('Germany', 'France', 'UK');
+
+
+SELECT * FROM customers
+WHERE customer_id IN(SELECT customer_id FROM orders);
+
+SELECT * FROM products
+WHERE price BETWEEN 10 AND 15;
+
+SELECT * FROM products
+WHERE product_name BETWEEN 'Pavlova' AND 'Tofu'
+ORDER BY Product_name ASC;
