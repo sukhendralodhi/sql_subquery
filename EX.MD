@@ -49,4 +49,20 @@ WHERE price BETWEEN 10 AND 15;
 
 SELECT * FROM products
 WHERE product_name BETWEEN 'Pavlova' AND 'Tofu'
+ORDER BY Product_name DESC;
+
+SELECT * FROM products
+WHERE product_name BETWEEN 'Pavlova' AND 'Tofu'
 ORDER BY Product_name ASC;
+
+SELECT * FROM orders
+WHERE order_date BETWEEN '2023-04-12' AND '2023-05-05';
+
+SELECT customer_id AS id 
+FROM customers;
+
+SELECT product_name || ' ' || unit AS product
+FROM products;
+
+SELECT product_name AS "My Great Products"
+FROM products;
