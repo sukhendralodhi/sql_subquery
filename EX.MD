@@ -85,3 +85,17 @@ VALUES
 ('Alice', 21, 'alice@example.com', 'BCA'),
 ('Bob', 23, 'bob@example.com', 'MCA'),
 ('Charlie', 20, 'charlie@example.com', 'B.Tech');
+
+SELECT *
+FROM students
+WHERE age > 20
+AND course = 'BCA';
+
+SELECT *
+FROM students
+WHERE course = 'BCA'
+OR course = 'MCA';
+
+SELECT *
+FROM students
+WHERE name LIKE 'A%';
