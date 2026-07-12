@@ -66,3 +66,13 @@ FROM products;
 
 SELECT product_name AS "My Great Products"
 FROM products;
+
+
+CREATE TABLE students (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    age INT,
+    email VARCHAR(100) UNIQUE,
+    course VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
