@@ -99,3 +99,15 @@ OR course = 'MCA';
 SELECT *
 FROM students
 WHERE name LIKE 'A%';
+
+SELECT *
+FROM students
+ORDER BY age DESC;
+
+SELECT *
+FROM students
+ORDER BY age ASC;
+
+SELECT *
+FROM students
+LIMIT 5;
