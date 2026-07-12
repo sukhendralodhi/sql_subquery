@@ -76,3 +76,12 @@ CREATE TABLE students (
     course VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO students (name, age, email, course)
+VALUES ('John Doe', 22, 'john@example.com', 'Computer Science');
+
+INSERT INTO students (name, age, email, course)
+VALUES
+('Alice', 21, 'alice@example.com', 'BCA'),
+('Bob', 23, 'bob@example.com', 'MCA'),
+('Charlie', 20, 'charlie@example.com', 'B.Tech');
